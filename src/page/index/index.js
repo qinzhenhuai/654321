@@ -1,5 +1,14 @@
-//通过require请求加载cats.js模块
 'use strict'
- require('./index.css')
-//打印请求回来的cats
-$('body').html('羊驼不是草泥马');
+ require('./index.css');
+ 
+ 
+ var _mm = require('util/mm.js');
+ _mm.request({
+	url:'/product/list.do?keyword=1',
+	 success: function(res){
+		 console.log("这是我们从网络接口中获取的数据：",res);
+	 },
+	 error:function(errMsg){
+		 console.log(errMsg);
+	 }
+ });
